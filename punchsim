@@ -1,0 +1,83 @@
+if getgenv().farmtype == "autofarm" then
+   _G.autofarm = getgenv().start
+   spawn(function()
+   while _G.autofarm do
+      local Remote = game.ReplicatedStorage['RemoteEvent']
+
+      local Arguments = {
+         [1] = {
+            [1] = "WarpPlrToOtherMap",
+            [2] = "Next"
+         }
+      }
+
+      Remote:FireServer(unpack(Arguments))
+      local Remote = game.ReplicatedStorage['RemoteEvent']
+
+      local Arguments = {
+         [1] = {
+            [1] = "Activate_Punch"
+         }
+      }
+      Remote:FireServer(unpack(Arguments))
+      wait()
+   end
+   end)
+   wait(1.5)
+   while _G.autofarm do
+      local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
+      for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
+         if v:IsA("Part") then
+            if v then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+               wait()
+            end
+         end
+      end
+      wait(1)
+   end
+end
+if getgenv().farmtype > 0 then
+   _G.e = getgenv().start
+   while _G.e do
+      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value > getgenv().farmtype then
+         local Remote = game.ReplicatedStorage['RemoteEvent']
+
+         local Arguments = {
+            [1] = {
+               [1] = "WarpPlrToOtherMap",
+               [2] = "Previous"
+            }
+         }
+
+         Remote:FireServer(unpack(Arguments))
+         wait(0.5)
+      end
+      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value < getgenv().farmtype then
+         local Remote = game.ReplicatedStorage['RemoteEvent']
+
+         local Arguments = {
+            [1] = {
+               [1] = "WarpPlrToOtherMap",
+               [2] = "Next"
+            }
+         }
+
+         Remote:FireServer(unpack(Arguments))
+         wait(0.5)
+      end
+      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value == getgenv().farmtype then
+         local b = getgenv().farmtype
+         for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[b]:GetDescendants()) do
+            if v:IsA("Part") then
+               if v then
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                  wait()
+               end
+            end
+         end
+      end
+      wait()
+   end
+   wait()
+end
