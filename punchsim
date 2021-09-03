@@ -45,7 +45,7 @@ if getgenv().farmtype == "autofarm" then
          if v:IsA("Part") then
             if v then
                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-               wait()
+               wait(0.2)
             end
          end
       end
@@ -87,7 +87,7 @@ if getgenv().farmtype > 0 then
             if v:IsA("Part") then
                if v then
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                  wait()
+                  wait(0.2)
                end
             end
          end
