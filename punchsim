@@ -1,3 +1,17 @@
+local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
+
+Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
+    Duration = 5,       
+    Main = {
+        Rounding = true,
+    },
+    GradientSettings = {
+        GradientEnabled = false,
+    SolidColorEnabled = true,
+    SolidColor = Color3.fromRGB(0,0,0255),
+    Retract = true
+    }
+});
 if getgenv().farmtype == "autofarm" then
    _G.autofarm = getgenv().start
    spawn(function()
@@ -23,7 +37,7 @@ if getgenv().farmtype == "autofarm" then
       wait()
    end
    end)
-   wait(1.5)
+   wait(3)
    while _G.autofarm do
       local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
       for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
