@@ -4,7 +4,7 @@ if getgenv().farmtype == "autofarm" then
 local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
 getgenv()["IrisAd"] = true
 Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
-    Duration = 10,       
+    Duration = 6,       
     Main = {
         Rounding = true,
     },
@@ -57,7 +57,7 @@ if getgenv().farmtype > 0 then
 local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
 getgenv()["IrisAd"] = true
 Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
-    Duration = 10,       
+    Duration = 6,       
     Main = {
         Rounding = true,
     },
