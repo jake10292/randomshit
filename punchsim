@@ -37,7 +37,7 @@ if getgenv().farmtype == "autofarm" then
       wait()
    end
    end)
-   wait(3)
+   wait(5)
    while _G.autofarm do
       local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
       for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
