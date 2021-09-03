@@ -46,7 +46,7 @@ Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "r
          if v:IsA("Part") then
             if v then
                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-               wait(0.45)
+               wait(0.4)
             end
          end
       end
@@ -102,7 +102,7 @@ Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "r
             if v:IsA("Part") then
                if v then
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                  wait(0.45)
+                  wait(0.4)
                end
             end
          end
