@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded()
 local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
 getgenv()["IrisAd"] = true
 Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
-    Duration = 5,       
+    Duration = 10,       
     Main = {
         Rounding = true,
     },
