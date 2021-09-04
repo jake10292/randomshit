@@ -114,7 +114,7 @@ end)
                end
             end
          end
-         wait(10)
+         wait(9)
       end
    end
    if getgenv().farmtype > 0 then
@@ -175,7 +175,7 @@ end)
                      end
                   end
                end
-               wait(10)
+               wait(9)
             end
          end
       end
