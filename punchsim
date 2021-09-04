@@ -1,89 +1,58 @@
 repeat wait() until game:IsLoaded()
-
-if getgenv().farmtype == "autofarm" then
-local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
-getgenv()["IrisAd"] = true
-Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
-    Duration = 6,       
-    Main = {
-        Rounding = true,
-    },
-    GradientSettings = {
-        GradientEnabled = false,
-    SolidColorEnabled = true,
-    SolidColor = Color3.fromRGB(0,0,0255),
-    Retract = true
-    }
-});
-   _G.autofarm = getgenv().start
-   spawn(function()
-   while _G.autofarm do
-      local Remote = game.ReplicatedStorage['RemoteEvent']
-
-      local Arguments = {
-         [1] = {
-            [1] = "WarpPlrToOtherMap",
-            [2] = "Next"
-         }
-      }
-
-      Remote:FireServer(unpack(Arguments))
-      local Remote = game.ReplicatedStorage['RemoteEvent']
-
-      local Arguments = {
-         [1] = {
-            [1] = "Activate_Punch"
-         }
-      }
-      Remote:FireServer(unpack(Arguments))
-      wait()
+   local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+   local venyx = library.new("Venyx", 5013109572)
+   local page = venyx:addPage("Misc", 5012544693)
+   local section1 = page:addSection("Misc Stuff")
+   _G.punch = nil
+   _G.safe = nil
+   section1:addToggle("Auto Safe Zone", nil, function(value)
+   if value then
+      _G.safe = true
+      while _G.safe do
+         local idc = game:GetService("Players").LocalPlayer.leaderstats.WORLD.value
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Map.Stages.SafeZones[idc]["SafeZone_Part"].CFrame
+         wait(1)
+      end
+   else
+      _G.safe = false
    end
    end)
-   wait(8)
-   while _G.autofarm do
-      local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
-      for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
-         if v:IsA("Part") then
-            if v then
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-               wait(0.4)
-            end
-         end
-      end
-      wait(1)
-   end
-end
-if getgenv().farmtype > 0 then
-local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
-getgenv()["IrisAd"] = true
-Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
-    Duration = 6,       
-    Main = {
-        Rounding = true,
-    },
-    GradientSettings = {
-        GradientEnabled = false,
-    SolidColorEnabled = true,
-    SolidColor = Color3.fromRGB(0,0,0255),
-    Retract = true
-    }
-});
-   _G.e = getgenv().start
-   while _G.e do
-      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value > getgenv().farmtype then
+   section1:addToggle("Auto Punch", nil, function(value)
+   if value then
+      _G.punch = true
+      while _G.punch do
          local Remote = game.ReplicatedStorage['RemoteEvent']
 
          local Arguments = {
             [1] = {
-               [1] = "WarpPlrToOtherMap",
-               [2] = "Previous"
+               [1] = "Activate_Punch"
             }
          }
-
          Remote:FireServer(unpack(Arguments))
-         wait(0.5)
+         wait()
       end
-      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value < getgenv().farmtype then
+   else
+      _G.punch = false
+   end
+   end)
+   if getgenv().farmtype == "autofarm" and getgenv().start then
+      local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
+      getgenv()["IrisAd"] = true
+      Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
+         Duration = 6,
+         Main = {
+            Rounding = true,
+         },
+         GradientSettings = {
+            GradientEnabled = false,
+            SolidColorEnabled = true,
+            SolidColor = Color3.fromRGB(0,0,0255),
+            Retract = true
+         }
+      });
+      _G.autofarm = getgenv().start
+      spawn(function()
+      while _G.autofarm do
          local Remote = game.ReplicatedStorage['RemoteEvent']
 
          local Arguments = {
@@ -94,20 +63,86 @@ Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "r
          }
 
          Remote:FireServer(unpack(Arguments))
-         wait(0.5)
+         wait()
       end
-      if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value == getgenv().farmtype then
-         local b = getgenv().farmtype
-         for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[b]:GetDescendants()) do
-            if v:IsA("Part") then
-               if v then
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                  wait(0.4)
+      end)
+      wait(8)
+      local dogs = getgenv().start
+      while _G.autofarm do
+         if dogs then
+            local collected = 0
+            local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
+            for i,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
+               if v:FindFirstChild("TouchInterest") and collected < 40 then
+                  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+                  collected = collected + 1
                end
             end
          end
+         wait(10)
       end
-      wait()
    end
-   wait()
-end
+   if getgenv().farmtype > 0 then
+      local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
+      getgenv()["IrisAd"] = true
+      Notification.Notify("Credits:", "Script by Jesus Christ (Christone101#4547)", "rbxasset://textures/ui/GuiImagePlaceholder.png", {
+         Duration = 6,
+         Main = {
+            Rounding = true,
+         },
+         GradientSettings = {
+            GradientEnabled = false,
+            SolidColorEnabled = true,
+            SolidColor = Color3.fromRGB(0,0,0255),
+            Retract = true
+         }
+      });
+      _G.e = getgenv().start
+      while _G.e do
+         if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value > getgenv().farmtype then
+            local Remote = game.ReplicatedStorage['RemoteEvent']
+
+            local Arguments = {
+               [1] = {
+                  [1] = "WarpPlrToOtherMap",
+                  [2] = "Previous"
+               }
+            }
+
+            Remote:FireServer(unpack(Arguments))
+            wait(0.5)
+         end
+         if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value < getgenv().farmtype then
+            local Remote = game.ReplicatedStorage['RemoteEvent']
+
+            local Arguments = {
+               [1] = {
+                  [1] = "WarpPlrToOtherMap",
+                  [2] = "Next"
+               }
+            }
+
+            Remote:FireServer(unpack(Arguments))
+            wait(0.5)
+         end
+         if game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value == getgenv().farmtype then
+            local b = getgenv().farmtype
+            local dogs = getgenv().start
+            for i ,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[b]:GetDescendants()) do
+               if dogs then
+                  local collected = 0
+                  local s = game:GetService("Players")[game.Players.LocalPlayer.Name].leaderstats.WORLD.Value
+                  for i,v in pairs(game:GetService("Workspace").Map.Stages.Boosts[s]:GetDescendants()) do
+                     if v:FindFirstChild("TouchInterest") and collected <= 40 then
+                        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+                        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+                        collected = collected + 1
+                     end
+                  end
+               end
+               wait(10)
+            end
+         end
+      end
+   end
