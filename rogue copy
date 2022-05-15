@@ -1,0 +1,77 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
+local window = library:Window("useful shit")
+local localplayer = game.Players.LocalPlayer
+local pp = game.Players.LocalPlayer.Name
+library:Keybind("P")
+window:Button("inf mana", function()
+local funny
+funny = hookmetamethod(game,'__index', function(a,b)
+if not checkcaller() and tostring(a) == 'Mana' and tostring(b) == 'Value' then
+   return 100
+end
+return funny(a,b)
+end)
+end)
+
+window:Button("nofall", function()
+if game.Workspace.Live[pp].CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage") then
+   game.Workspace.Live[pp].CharacterHandler.Remotes.ApplyFallDamage:Destroy()
+end
+end)
+
+
+window:Toggle("Trinket Pickup", false, function(bool1)
+_G.pickup = bool1
+while _G.pickup do
+   pcall(function()
+   for i,v in pairs(game.Workspace.Trinkets:GetChildren()) do
+      if v:IsA('UnionOperation') or v:IsA('Part') or v:IsA('MeshPart') then
+         if (localplayer.Character.HumanoidRootPart.Position - v.Position).Magnitude <= 19 then
+            fireclickdetector(v.ClickPart.ClickDetector)
+            wait()
+         end
+      end
+   end
+   end)
+   wait()
+end
+end)
+
+
+window:Toggle("speed toggle", false, function(penis)
+_G.sex = penis
+end)
+
+window:Box("Walkspeed", function(text, focuslost)
+if focuslost then
+   _G.balls = text
+   while _G.sex do
+      pcall(function()
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.balls
+      task.wait()
+      end)
+   end
+end
+end)
+
+window:Toggle("jump toggle", false, function(penis)
+_G.i = penis
+end)
+
+window:Box("Jump Power", function(text, focuslost)
+if focuslost then
+   _G.o = text
+   while _G.i do
+      pcall(function()
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = _G.o
+      task.wait()
+      end)
+   end
+end
+end)
+
+window:Button("Button name", function()
+if game.Players.LocalPlayer.Character.Health > 0 then
+   game.Players.LocalPlayer.Character:BreakJoints()
+end
+end)
