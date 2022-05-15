@@ -1,9 +1,9 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
-local window = library:Window("useful shit")
+local window = library:Window("Rogue Lineage: Friendship is Magic")
 local localplayer = game.Players.LocalPlayer
 local pp = game.Players.LocalPlayer.Name
 library:Keybind("P")
-window:Button("inf mana", function()
+window:Button("Inf Mana", function()
 local funny
 funny = hookmetamethod(game,'__index', function(a,b)
 if not checkcaller() and tostring(a) == 'Mana' and tostring(b) == 'Value' then
@@ -13,7 +13,7 @@ return funny(a,b)
 end)
 end)
 
-window:Button("nofall", function()
+window:Button("No-fall", function()
 if game.Workspace.Live[pp].CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage") then
    game.Workspace.Live[pp].CharacterHandler.Remotes.ApplyFallDamage:Destroy()
 end
@@ -38,11 +38,11 @@ end
 end)
 
 
-window:Toggle("speed toggle", false, function(penis)
+window:Toggle("Speed Toggle", false, function(penis)
 _G.sex = penis
 end)
 
-window:Box("Walkspeed", function(text, focuslost)
+window:Box("WalkSpeed", function(text, focuslost)
 if focuslost then
    _G.balls = text
    while _G.sex do
@@ -54,11 +54,11 @@ if focuslost then
 end
 end)
 
-window:Toggle("jump toggle", false, function(penis)
+window:Toggle("Jump Toggle", false, function(penis)
 _G.i = penis
 end)
 
-window:Box("Jump Power", function(text, focuslost)
+window:Box("JumpPower", function(text, focuslost)
 if focuslost then
    _G.o = text
    while _G.i do
