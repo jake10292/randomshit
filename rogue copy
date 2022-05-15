@@ -26,7 +26,7 @@ while _G.pickup do
    pcall(function()
    for i,v in pairs(game.Workspace.Trinkets:GetChildren()) do
       if v:IsA('UnionOperation') or v:IsA('Part') or v:IsA('MeshPart') then
-         if (localplayer.Character.HumanoidRootPart.Position - v.Position).Magnitude <= 15 then
+         if (localplayer.Character.HumanoidRootPart.Position - v.Position).Magnitude <= 12 then
             fireclickdetector(v.ClickPart.ClickDetector)
             wait(1)
          end
