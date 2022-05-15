@@ -79,3 +79,7 @@ end)
 window:Button("Load Trinket ESP GUI", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/dBKf8tmE"),true)()
 end)
+
+window:Button("Fly(M)(+-)(spawce,ctrl)", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/gKwuanFz"),true)()
+end)
