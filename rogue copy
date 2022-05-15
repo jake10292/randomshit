@@ -70,8 +70,12 @@ if focuslost then
 end
 end)
 
-window:Button("Button name", function()
+window:Button("Reset", function()
 if game.Players.LocalPlayer.Character.Health > 0 then
    game.Players.LocalPlayer.Character:BreakJoints()
 end
+end)
+
+window:Button("Load Trinket ESP GUI", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/dBKf8tmE"),true)()
 end)
