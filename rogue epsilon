@@ -28,7 +28,7 @@ while _G.pickup do
    pcall(function()
    for i,v in pairs(game.Workspace.MouseIgnore:GetDescendants()) do
       if v.Name == "ClickPart" then
-         if (localplayer.Character.HumanoidRootPart.Position - v.Parent.Position).Magnitude <= 20 then
+         if (localplayer.Character.HumanoidRootPart.Position - v.Parent.Position).Magnitude <= 50 then
             fireclickdetector(v.Clicker)
 
          end
