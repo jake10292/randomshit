@@ -1,8 +1,5 @@
 local TravelSpeed = 2000
 local mobArray = {"All Mobs"}
-local function sortLexicographically(a, b)
-   return a.byte() < b.byte()
-end
 local TweenService = game:GetService("TweenService")
 local function sexx(sex1 : CFrame)
    local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
@@ -159,16 +156,22 @@ for _,v in pairs(game.Workspace.Mobs:GetDescendants()) do
    if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
       if table.find(mobArray, v.Name) == nil then
          table.insert(mobArray, v.Name)
-         table.sort(mobArray, sortLexicographically())
       end
    end
 end
-
-local dropdown = window:Dropdown("Autofarm Whitelist", mobArray, function(name)
+table.sort(mobArray)
+local dropdown1 = window:Dropdown("Autofarm Whitelist", mobArray, function(name)
 _G.whites = name
 end)
-
-window:Toggle("Autofarm (choose above)", true, function(bools)
+game:GetService("Workspace").Mobs.ChildAdded:Connect(function(boobs)
+   if boobs:IsA("Model") and boobs:FindFirstChild("HumanoidRootPart") then
+      if table.find(mobArray, boobs.Name) == nil then
+    dropdown1:Button(boobs.Name)
+      end
+   end
+table.sort(mobArray)
+end)
+window:Toggle("Autofarm (choose above)", false, function(bools)
 _G.idc = bools
 if _G.whites == "All Mobs" then
    while _G.idc do
