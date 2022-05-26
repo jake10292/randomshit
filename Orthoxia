@@ -1,0 +1,208 @@
+local TravelSpeed = 2000
+local mobArray = {"All Mobs"}
+local TweenService = game:GetService("TweenService")
+local function sexx(sex1 : CFrame)
+   local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
+   local TimeNeeded = DistanceBetweenPoints / TravelSpeed, 3
+   local Tween = TweenService:Create(
+   game.Players.LocalPlayer.Character.HumanoidRootPart,
+   TweenInfo.new(
+   TimeNeeded,
+   Enum.EasingStyle.Linear,
+   Enum.EasingDirection.Out
+   ),
+   {
+      CFrame = sex1
+   }
+   )
+   Tween:Play()
+end
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
+local window = library:Window("Orthoxia")
+for i,v in pairs(game:GetService("Workspace").Map.Model:GetChildren()) do
+   pcall(function()
+   if v.Color == Color3.fromRGB(82, 124, 174) or v.Color == Color3.fromRGB(27, 42, 53) or v.Color == Color3.fromRGB(213, 115, 61) or v.Color == Color3.fromRGB(98, 37, 209) then
+      if v.Name == "KILL" then
+         v:Destroy()
+      end
+   end
+   end)
+end
+window:Label("Press Damage Multi once", Color3.fromRGB(255,255,255))
+window:Label("only if it breaks can you press again", Color3.fromRGB(255,255,255))
+window:Toggle("Mob ESP", false, function(bool)
+_G.e = bool
+if _G.e == true then
+   for i,v in pairs(game:GetService("Workspace").Mobs:GetChildren()) do
+      if v:IsA("Model") then
+         local a = Instance.new("BillboardGui",v)
+         a.Size = UDim2.new(4,0, 4,0)
+         a.Name = "A"
+         a.AlwaysOnTop = true
+         local b = Instance.new("Frame",a)
+         b.Size = UDim2.new(1,0, 1,0)
+         b.BackgroundTransparency = 1
+         b.BorderSizePixel = 0
+         local c = Instance.new("TextLabel",b)
+         c.Text = v.Name
+         c.Size = UDim2.new(1,0, 1,0)
+         c.BackgroundTransparency = 1
+         c.BorderSizePixel = 0
+         c.TextColor3 = Color3.new(255,0,0)
+         c.TextSize = 15
+      end
+   end
+   game:GetService("Workspace").Mobs.ChildAdded:Connect(function(cock)
+   local a = Instance.new("BillboardGui",cock)
+   a.Size = UDim2.new(4,0, 4,0)
+   a.Name = "A"
+   a.AlwaysOnTop = true
+   local b = Instance.new("Frame",a)
+   b.Size = UDim2.new(1,0, 1,0)
+   b.BackgroundTransparency = 1
+   b.BorderSizePixel = 0
+   local c = Instance.new("TextLabel",b)
+   c.Text = v.Name
+   c.Size = UDim2.new(1,0, 1,0)
+   c.BackgroundTransparency = 1
+   c.BorderSizePixel = 0
+   c.TextColor3 = Color3.new(255,0,0)
+   c.TextSize = 15
+   end)
+else
+   for i,v in pairs(game:GetService("Workspace").Mobs:GetDescendants()) do
+      if v.Name == "A" then
+         pcall(function()
+         v:Destroy()
+         end)
+      end
+   end
+end
+end)
+window:Button("Damage Multi(x30)", function()
+local OldNameCall = nil
+OldNameCall = hookmetamethod(game, "__namecall", function(...)
+local Args = {...}
+local Self = Args[1]
+if not checkcaller() and getnamecallmethod()=="FireServer" and tostring(Self)=="PlayerDamage" then
+   for i = 1,30 do
+      OldNameCall(...)
+   end
+end
+return OldNameCall(...)
+end)
+end)
+window:Button("Godmode", function()
+local OldNameCall = nil
+OldNameCall = hookmetamethod(game, "__namecall", function(...)
+local Args = {...}
+local Self = Args[1]
+if not checkcaller() and getnamecallmethod()=="FireServer" and tostring(Self)=="Damage" then
+   return
+end
+return OldNameCall(...)
+end)
+end)
+window:Button("Inf Dash", function()
+local remote = game.Players.LocalPlayer.Character.Remote
+mt = hookmetamethod(game, "__namecall", newcclosure(function(...)
+local args = {...}
+local method = getnamecallmethod()
+
+if (args[1] == remote and args[2] == 'Q' and method == "InvokeServer") then
+   return(true)
+end
+
+return mt(...)
+end))
+end)
+window:Toggle("Speed Toggle", false, function(penis)
+_G.sex = penis
+end)
+window:Box("WalkSpeed", function(text, focuslost)
+if focuslost then
+   _G.balls = text
+   while _G.sex do
+      pcall(function()
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.balls
+      task.wait()
+      end)
+   end
+end
+end)
+window:Toggle("Jump Toggle", false, function(penis)
+_G.i = penis
+end)
+window:Box("JumpPower", function(text, focuslost)
+if focuslost then
+   _G.o = text
+   while _G.i do
+      pcall(function()
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = _G.o
+      task.wait()
+      end)
+   end
+end
+end)
+local dropdown = window:Dropdown("Village TP", {"Yaron Village", "Olgrum Village", "Tyrul Village", "Northern Tower", "Yaron Castle", "Void Fortress","Vryl Village"}, function(nuts)
+for i,v in pairs(game:GetService("Workspace").Map.Spawns.Area:GetChildren()) do
+   if v.Name == nuts then
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+   end
+end
+end)
+
+for _,v in pairs(game.Workspace.Mobs:GetDescendants()) do
+         if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
+                  if table.find(mobArray, v.Name) == nil then
+                           table.insert(mobArray, v.Name)
+            end
+         end
+      end
+
+local dropdown = window:Dropdown("Autofarm Whitelist", mobArray, function(name)
+_G.whites = name
+end)
+
+window:Toggle("Autofarm (choose above)", true, function(bools)
+_G.idc = bools
+if _G.whites == "All Mobs" then
+   while _G.idc do
+      pcall(function()
+      for i,v in pairs(game.Workspace.Mobs:GetDescendants()) do
+         if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
+            repeat
+               sexx(v.HumanoidRootPart.CFrame + v.HumanoidRootPart.CFrame.lookVector * -5)
+               local args = {
+                  [1] = "Click"
+               }
+               game:GetService("Players").LocalPlayer.Character:FindFirstChild("5").Remote:FireServer(unpack(args))
+               task.wait()
+            until
+            v.Humanoid.Health <= 0
+         end
+      end
+      end)
+      wait()
+   end
+else
+   while _G.idc do
+      pcall(function()
+      for i,v in pairs(game.Workspace.Mobs:GetDescendants()) do
+         if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v.Name == _G.whites then
+            repeat
+               sexx(v.HumanoidRootPart.CFrame + v.HumanoidRootPart.CFrame.lookVector * -5)
+               local args = {
+                  [1] = "Click"
+               }
+               game:GetService("Players").LocalPlayer.Character:FindFirstChild("5").Remote:FireServer(unpack(args))
+               task.wait()
+            until
+            v.Humanoid.Health <= 0
+         end
+      end
+      end)
+      wait()
+   end
+end
+end)
