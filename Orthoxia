@@ -1,7 +1,7 @@
 local TravelSpeed = 2000
 local mobArray = {"All Mobs"}
 local function sortLexicographically(a, b)
-    a.byte() < b.byte()
+   return a.byte() < b.byte()
 end
 local TweenService = game:GetService("TweenService")
 local function sexx(sex1 : CFrame)
