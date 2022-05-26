@@ -1,5 +1,8 @@
 local TravelSpeed = 2000
 local mobArray = {"All Mobs"}
+local function sortLexicographically(a, b)
+    a.byte() < b.byte()
+end
 local TweenService = game:GetService("TweenService")
 local function sexx(sex1 : CFrame)
    local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
@@ -156,6 +159,7 @@ for _,v in pairs(game.Workspace.Mobs:GetDescendants()) do
    if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
       if table.find(mobArray, v.Name) == nil then
          table.insert(mobArray, v.Name)
+         table.sort(mobArray, sortLexicographically())
       end
    end
 end
