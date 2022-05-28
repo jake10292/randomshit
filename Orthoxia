@@ -62,7 +62,7 @@ if _G.e == true then
    b.BackgroundTransparency = 1
    b.BorderSizePixel = 0
    local c = Instance.new("TextLabel",b)
-   c.Text = v.Name
+   c.Text = cock.Name
    c.Size = UDim2.new(1,0, 1,0)
    c.BackgroundTransparency = 1
    c.BorderSizePixel = 0
@@ -171,7 +171,7 @@ game:GetService("Workspace").Mobs.ChildAdded:Connect(function(boobs)
    end
 table.sort(mobArray)
 end)
-window:Toggle("Autofarm (choose above)", false, function(bools)
+window:Toggle("Autofarm", false, function(bools)
 _G.idc = bools
 if _G.whites == "All Mobs" then
    while _G.idc do
@@ -212,4 +212,17 @@ else
       wait()
    end
 end
+end)
+spawn(function()
+while true do
+    for i,v in pairs(mobArray) do
+       if v ~= "All Mobs" then
+        if not (game:GetService("Workspace").Mobs:FindFirstChild(v)) then
+            dropdown1:Remove(v)
+            table.Remove(mobArray, v)
+        end
+       end
+    end
+    wait(1)
+end 
 end)
