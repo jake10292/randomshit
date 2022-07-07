@@ -7,9 +7,9 @@ repeat wait() until game:IsLoaded()
    local sword = {}
    local TweenService = game:GetService("TweenService")
    local TravelSpeed = 200000
-   local x = 25
-   local y = 25
-   local z = 25
+   local x = 15
+   local y = 15
+   local z = 15
    local vc = game:GetService("VirtualUser")
    game:GetService("Players").LocalPlayer.Idled:Connect(function()
    vc:CaptureController()
@@ -121,7 +121,7 @@ repeat wait() until game:IsLoaded()
                if not string.find(v.Name, "General") and v.IsNpc.Value == true then
                   repeat
                      pcall(function()
-                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
@@ -147,7 +147,7 @@ repeat wait() until game:IsLoaded()
                if string.find(v.Name, "General") and v.IsNpc.Value == true then
                   repeat
                      pcall(function()
-                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
@@ -177,7 +177,7 @@ repeat wait() until game:IsLoaded()
                   if not string.find(v.Name, "General") and v.IsNpc.Value == true then
                      repeat
                         pcall(function()
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
@@ -203,7 +203,7 @@ repeat wait() until game:IsLoaded()
                   if string.find(v.Name, "General") and v.IsNpc.Value == true then
                      repeat
                         pcall(function()
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
@@ -233,7 +233,7 @@ repeat wait() until game:IsLoaded()
                   if string.find(v.Name, "General") and v.IsNpc.Value == true then
                      repeat
                         pcall(function()
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
@@ -263,7 +263,7 @@ repeat wait() until game:IsLoaded()
                      if string.find(v.Name, "General") and v.IsNpc.Value == true then
                         repeat
                            pcall(function()
-                           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
+                           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooobs):Activate()
