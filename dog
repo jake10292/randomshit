@@ -1,185 +1,179 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
-local window = library:Window("Field of Balls")
-local vu = game:GetService("VirtualUser")
-local sword = {}
-local TweenService = game:GetService("TweenService")
-local TravelSpeed = 200000
-
-local function sexx(sex1 : CFrame)
-   local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
-   local TimeNeeded = DistanceBetweenPoints / TravelSpeed, 3
-   local Tween = TweenService:Create(
-   game.Players.LocalPlayer.Character.HumanoidRootPart,
-   TweenInfo.new(
-   TimeNeeded,
-   Enum.EasingStyle.Linear,
-   Enum.EasingDirection.Out
-   ),
-   {
-      CFrame = sex1
-   }
-   )
-   Tween:Play()
-end
-for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-   if v:IsA("Tool") then
-      if table.find(sword, v.Name) == nil then
-         table.insert(sword, v.Name)
-      end
-   end
-end
-local dropdown = window:Dropdown("Chosen Sword", sword, function(name)
-getgenv().boobs = name
-end)
-window:Toggle("Auto Equip Sword", false, function(bool)
-_G.e = bool
-while _G.e do
-   pcall(function()
-   game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
-   game.Players[game.Players.LocalPlayer.Name].Backpack[boobs])
+repeat wait() until game:IsLoaded()
+   game:GetService("Players").LocalPlayer.DevCameraOcclusionMode = "Invisicam"
+   local Cooldown; Cooldown = hookfunction(wait, function(v)
+   v = 0;
+   return Cooldown(v);
+   end);
+   local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
+   local window = library:Window("Field of Balls")
+   local vu = game:GetService("VirtualUser")
+   local sword = {}
+   local TweenService = game:GetService("TweenService")
+   local TravelSpeed = 200000
+   local x = 20
+   local y = 20
+   local z = 20
+   local vc = game:GetService("VirtualUser")
+   game:GetService("Players").LocalPlayer.Idled:Connect(function()
+   vc:CaptureController()
+   vc:ClickButton2(Vector2.new())
    end)
-   wait()
-end
-end)
-local balls = window:Dropdown("Farm Method", {"Everything","General"}, function(hi)
-getgenv().help = hi
-end)
-window:Toggle("Noclip(turn on)", false, function(bool)
-_G.NoClip = bool
-local CharParts = {}
-game:GetService("RunService").Stepped:connect(function()
-if _G.NoClip then
-   for i = 1, #CharParts do
-      CharParts[i].CanCollide = false
+   local function sexx(sex1 : CFrame)
+      local DistanceBetweenPoints = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - sex1.Position ).Magnitude
+      local TimeNeeded = DistanceBetweenPoints / TravelSpeed, 3
+      local Tween = TweenService:Create(
+      game.Players.LocalPlayer.Character.HumanoidRootPart,
+      TweenInfo.new(
+      TimeNeeded,
+      Enum.EasingStyle.Linear,
+      Enum.EasingDirection.Out
+      ),
+      {
+         CFrame = sex1
+      }
+      )
+      Tween:Play()
    end
-end
-end)
-
-function SetupCharCollide(Char)
-   CharParts = {}
-   Char:WaitForChild("Head")
-   for i, v in pairs(Char:GetChildren()) do
-      if v:IsA("BasePart") then
-         table.insert(CharParts, v)
+   for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+      if v:IsA("Tool") then
+         if table.find(sword, v.Name) == nil then
+            table.insert(sword, v.Name)
+         end
       end
    end
-end
+   local dropdown = window:Dropdown("Chosen Sword", sword, function(name)
+   getgenv().boobs = name
+   end)
+   window:Toggle("Auto Equip Sword", false, function(bool)
+   _G.e = bool
+   while _G.e do
+      pcall(function()
+      game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+      game.Players[game.Players.LocalPlayer.Name].Backpack[boobs])
+      end)
+      wait()
+   end
+   end)
+   local balls = window:Dropdown("Farm Method", {"Everything","General"}, function(hi)
+   getgenv().help = hi
+   end)
+   window:Toggle("Autofarm Toggle", false, function(bool)
+   _G.y = bool
+   if _G.y == false then
+      wait()
+      game.Players.LocalPlayer.Character.Humanoid.Health = 0
+   end
+   while _G.y do
+      pcall(function()
+      for i,v in pairs(game:GetService("Workspace").Unbreakable.Characters:GetDescendants()) do
+         if v.Name == game.Players.LocalPlayer.Name then
+            _G.bam = v.Parent.Name
+            task.wait()
+         end
+      end
+      if getgenv().help == "Everything" then
+         if _G.bam == "Human" then
+            for i,v in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
+               if not string.find(v.Name, "General") then
+                  repeat
+                     pcall(function()
+                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                     game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                     for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                        if v.ClassName == "Tool" then
+                           v.Handle.Size = Vector3.new(x, y, z)
+                        end
+                     end
+                     for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                        if v:IsA("BasePart") then
+                           v.CanCollide = false
+                        end
+                     end
+                     end)
+                     task.wait()
+                  until v.Humanoid.Health <= 0 or _G.y == false
+               end
+            end
+         elseif
+            _G.bam == "Neutral" then
+               wait()
+            else
+               for i,v in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
+                  if not string.find(v.Name, "General") then
+                     repeat
+                        pcall(function()
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                        game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                        for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                           if v.ClassName == "Tool" then
+                              v.Handle.Size = Vector3.new(x, y, z)
+                           end
+                        end
+                        for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                           if v:IsA("BasePart") then
+                              v.CanCollide = false
+                           end
+                        end
+                        end)
+                        task.wait()
+                     until v.Humanoid.Health <= 0 or _G.y == false
+                  end
+               end
+            end
+         end
+         if getgenv().help == "General" then
+            if _G.bam == "Human" then
+               for i,v in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
+                  if string.find(v.Name, "General") then
+                     repeat
+                        pcall(function()
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                        game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                        for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                           if v.ClassName == "Tool" then
+                              v.Handle.Size = Vector3.new(x, y, z)
+                           end
+                        end
+                        for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                           if v:IsA("BasePart") then
+                              v.CanCollide = false
+                           end
+                        end
+                        end)
+                        task.wait()
+                     until v.Humanoid.Health <= 0 or _G.y == false
+                  end
+               end
+            elseif
+               _G.bam == "Neutral" then
+                  wait()
+               else
+                  for i,v in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
+                     if string.find(v.Name, "General") then
+                        repeat
+                           pcall(function()
+                           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                           game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                           for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                              if v.ClassName == "Tool" then
+                                 v.Handle.Size = Vector3.new(x, y, z)
+                              end
+                           end
+                           for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                              if v:IsA("BasePart") then
+                                 v.CanCollide = false
+                              end
+                           end
 
-if game.Players.LocalPlayer.Character then
-   SetupCharCollide(game.Players.LocalPlayer.Character)
-end
-game.Players.LocalPlayer.CharacterAdded:connect(function(Ch)
-SetupCharCollide(Ch)
-end)
-end)
-window:Toggle("Autofarm Toggle", false, function(bool)
-_G.y = bool
-if _G.y == false then
-   wait()
-   game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-while _G.y do
-   pcall(function()
-   for i,v in pairs(game:GetService("Workspace").Unbreakable.Characters:GetDescendants()) do
-      if v.Name == game.Players.LocalPlayer.Name then
-         _G.bam = v.Parent.Name
+                           end)
+                           task.wait()
+                        until v.Humanoid.Health <= 0 or _G.y == false
+                     end
+                  end
+               end
+            end
+            end)
+            task.wait()
+         end
          task.wait()
-      end
-   end
-   if getgenv().help == "Everything" then
-      if _G.bam == "Human" then
-         for i,v in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
-            if not string.find(v.Name, "General") then
-               repeat
-                  pcall(function()
-                  v.Torso.Size = Vector3.new(35,35,35)
-                  v.Torso.CanCollide = false
-                  v.Torso.Transparency = 1
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
-                  game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
-                  if game.Workspace.Unbreakable.Characters.Orc:FindFirstChild(game.Players.LocalPlayer.Name)
-                  then
-                     _G.kk = "bad"
-                  else _G.kk = "good"
-                  end
-                  end)
-                  task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
-            end
-         end
-         elseif 
-         _G.bam == "Neutral" then
-            wait()
-      else
-         for i,v in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
-            if not string.find(v.Name, "General") then
-               repeat
-                  pcall(function()
-                  v.Torso.CanCollide = false
-                  v.Torso.Size = Vector3.new(35,35,35)
-                  v.Torso.Transparency = 1
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(270), 0, 0) + Vector3.new(0, 12, 0)
-                  game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
-                   if game.Workspace.Unbreakable.Characters.Human:FindFirstChild(game.Players.LocalPlayer.Name)
-                  then
-                     _G.kk = "bad"
-                  else _G.kk = "good"
-                  end
-                  end)
-                  task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
-            end
-         end
-      end
-   end
-   if getgenv().help == "General" then
-      if _G.bam == "Human" then
-         for i,v in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
-            if string.find(v.Name, "General") then
-               repeat
-                  pcall(function()
-                  v.Torso.Size = Vector3.new(35,35,35)
-                  v.Torso.CanCollide = false
-                  v.Torso.Transparency = 1
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
-                  game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
-                   if game.Workspace.Unbreakable.Characters.Orc:FindFirstChild(game.Players.LocalPlayer.Name)
-                  then
-                     _G.kk = "bad"
-                  else _G.kk = "good"
-                  end
-                  end)
-                  task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
-            end
-         end
-         elseif 
-         _G.bam == "Neutral" then
-            wait()
-      else
-         for i,v in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
-            if string.find(v.Name, "General") then
-               repeat
-                  pcall(function()
-                  v.Torso.CanCollide = false
-                  v.Torso.Size = Vector3.new(35,35,35)
-                  v.Torso.Transparency = 1
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(270), 0, 0) + Vector3.new(0, 12, 0)
-                  game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
-                   if game.Workspace.Unbreakable.Characters.Human:FindFirstChild(game.Players.LocalPlayer.Name)
-                  then
-                     _G.kk = "bad"
-                  else _G.kk = "good"
-                  end
-                  end)
-                  task.wait()
-               until v.Humanoid.Health <= 0 or _G.y == false or _G.kk == "bad"
-            end
-         end
-      end
-   end
-   end)
-   task.wait()
-end
-task.wait()
-end)
+         end)
