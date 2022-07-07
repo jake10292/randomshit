@@ -62,13 +62,17 @@ repeat wait() until game:IsLoaded()
    getgenv().help = hi
    end)
    local function dn()
-      spawn(function()
-      while _G.y do
-         wait(5)
-         keypress(0x31)
-      end
-      end)
+   spawn(function()
+   while _G.y do
+if not game.Players.LocalPlayer.Character:FindFirstChild("Gavel of Justice") then
+      keypress(0x31)
+    elseif not game.Players.LocalPlayer.Character:FindFirstChild("Greatsword of Flying II") then
+      keypress(0x31)
+    end
+    task.wait()
    end
+   end)
+end
    window:Toggle("Autofarm Toggle", false, function(bool)
    _G.y = bool
    dn()
