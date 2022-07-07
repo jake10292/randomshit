@@ -10,9 +10,9 @@ repeat wait() until game:IsLoaded()
    local sword = {}
    local TweenService = game:GetService("TweenService")
    local TravelSpeed = 200000
-   local x = 20
-   local y = 20
-   local z = 20
+   local x = 25
+   local y = 25
+   local z = 25
    local vc = game:GetService("VirtualUser")
    game:GetService("Players").LocalPlayer.Idled:Connect(function()
    vc:CaptureController()
@@ -34,6 +34,8 @@ repeat wait() until game:IsLoaded()
       )
       Tween:Play()
    end
+   local sword = {"Nothing"}
+
    for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
       if v:IsA("Tool") then
          if table.find(sword, v.Name) == nil then
@@ -41,8 +43,12 @@ repeat wait() until game:IsLoaded()
          end
       end
    end
+
    local dropdown = window:Dropdown("Chosen Sword", sword, function(name)
    getgenv().boobs = name
+   end)
+   local dropdown = window:Dropdown("Second Chosen Sword", sword, function(name)
+   getgenv().booobs = name
    end)
    window:Toggle("Auto Equip Sword", false, function(bool)
    _G.e = bool
@@ -50,6 +56,7 @@ repeat wait() until game:IsLoaded()
       pcall(function()
       game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
       game.Players[game.Players.LocalPlayer.Name].Backpack[boobs])
+      game.Players.LocalPlayer.Backpack[booobs].Parent = game.Players.LocalPlayer.Character
       end)
       wait()
    end
@@ -79,6 +86,7 @@ repeat wait() until game:IsLoaded()
                      pcall(function()
                      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                     game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                      for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                         if v.ClassName == "Tool" then
                            v.Handle.Size = Vector3.new(x, y, z)
@@ -104,6 +112,7 @@ repeat wait() until game:IsLoaded()
                         pcall(function()
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                        game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                         for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                            if v.ClassName == "Tool" then
                               v.Handle.Size = Vector3.new(x, y, z)
@@ -129,6 +138,7 @@ repeat wait() until game:IsLoaded()
                         pcall(function()
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                        game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                         for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                            if v.ClassName == "Tool" then
                               v.Handle.Size = Vector3.new(x, y, z)
@@ -154,6 +164,7 @@ repeat wait() until game:IsLoaded()
                            pcall(function()
                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13.5, 0)
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boobs):Activate()
+                           game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booobs):Activate()
                            for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                               if v.ClassName == "Tool" then
                                  v.Handle.Size = Vector3.new(x, y, z)
