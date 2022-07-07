@@ -1,9 +1,6 @@
 repeat wait() until game:IsLoaded()
    game:GetService("Players").LocalPlayer.DevCameraOcclusionMode = "Invisicam"
-   local Cooldown; Cooldown = hookfunction(wait, function(v)
-   v = 0;
-   return Cooldown(v);
-   end);
+
    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
    local window = library:Window("Field of Balls")
    local vu = game:GetService("VirtualUser")
@@ -64,8 +61,17 @@ repeat wait() until game:IsLoaded()
    local balls = window:Dropdown("Farm Method", {"Everything","General"}, function(hi)
    getgenv().help = hi
    end)
+   local function dn()
+      spawn(function()
+      while _G.y do
+         wait(5)
+         keypress(0x31)
+      end
+      end)
+   end
    window:Toggle("Autofarm Toggle", false, function(bool)
    _G.y = bool
+   dn()
    if _G.y == false then
       wait()
       game.Players.LocalPlayer.Character.Humanoid.Health = 0
