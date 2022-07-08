@@ -62,9 +62,7 @@ repeat wait() until game:IsLoaded()
    local dropdown = window:Dropdown("Sixth Chosen Weapon", sword, function(name)
    getgenv().booooooobs = name
    end)
-   local dropdown = window:Dropdown("Seventh Chosen Weapon", sword, function(name)
-   getgenv().boooooooobs = name
-   end)
+
    window:Toggle("Auto Equip Weapon", false, function(bool)
    _G.e = bool
    while _G.e do
@@ -76,7 +74,6 @@ repeat wait() until game:IsLoaded()
       game.Players.LocalPlayer.Backpack[booooobs].Parent = game.Players.LocalPlayer.Character
       game.Players.LocalPlayer.Backpack[boooooobs].Parent = game.Players.LocalPlayer.Character
       game.Players.LocalPlayer.Backpack[booooooobs].Parent = game.Players.LocalPlayer.Character
-      game.Players.LocalPlayer.Backpack[boooooooobs].Parent = game.Players.LocalPlayer.Character
       end)
       wait()
    end
@@ -87,6 +84,7 @@ repeat wait() until game:IsLoaded()
    local function dn()
       spawn(function()
       while _G.y do
+      pcall(function()
          if not game.Players.LocalPlayer.Character:FindFirstChild(boobs) then
             keypress(0x31)
          elseif not game.Players.LocalPlayer.Character:FindFirstChild(booobs) then
@@ -99,9 +97,8 @@ repeat wait() until game:IsLoaded()
             keypress(0x31)
          elseif not game.Players.LocalPlayer.Character:FindFirstChild(booooooobs) then
             keypress(0x31)
-         elseif not game.Players.LocalPlayer.Character:FindFirstChild(boooooooobs) then
-            keypress(0x31)
          end
+         end)
          task.wait()
       end
       end)
@@ -134,7 +131,6 @@ repeat wait() until game:IsLoaded()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                     game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                      for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                         if v.ClassName == "Tool" then
                            v.Handle.Size = Vector3.new(x, y, z)
@@ -161,7 +157,6 @@ repeat wait() until game:IsLoaded()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                      game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                     game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                      for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                         if v.ClassName == "Tool" then
                            v.Handle.Size = Vector3.new(x, y, z)
@@ -192,7 +187,6 @@ repeat wait() until game:IsLoaded()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                        game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                         for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                            if v.ClassName == "Tool" then
                               v.Handle.Size = Vector3.new(x, y, z)
@@ -219,7 +213,6 @@ repeat wait() until game:IsLoaded()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                        game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                         for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                            if v.ClassName == "Tool" then
                               v.Handle.Size = Vector3.new(x, y, z)
@@ -250,7 +243,6 @@ repeat wait() until game:IsLoaded()
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                         game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                        game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                         for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                            if v.ClassName == "Tool" then
                               v.Handle.Size = Vector3.new(x, y, z)
@@ -281,7 +273,6 @@ repeat wait() until game:IsLoaded()
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooobs):Activate()
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooobs):Activate()
                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(booooooobs):Activate()
-                           game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(boooooooobs):Activate()
                            for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
                               if v.ClassName == "Tool" then
                                  v.Handle.Size = Vector3.new(x, y, z)
@@ -305,3 +296,5 @@ repeat wait() until game:IsLoaded()
          end
          task.wait()
          end)
+         library:Keybind("RightShift")
+         window:Label("RightShift to toggle UI", Color3.fromRGB(127, 143, 166))
