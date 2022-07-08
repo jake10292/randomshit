@@ -7,9 +7,9 @@ repeat wait() until game:IsLoaded()
    local sword = {}
    local TweenService = game:GetService("TweenService")
    local TravelSpeed = 200000
-   local x = 25
-   local y = 25
-   local z = 25
+   local x = 20
+   local y = 20
+   local z = 20
    local vc = game:GetService("VirtualUser")
    game:GetService("Players").LocalPlayer.Idled:Connect(function()
    vc:CaptureController()
