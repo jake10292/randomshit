@@ -12,6 +12,7 @@ if getgenv().versionname == "Public" then
 local library = {design = getgenv().design == "kali" and "kali" or "uwuware", tabs = {}, draggable = true, flags = {}, title = "[Public Version] Field of Balls - " .. game.Players.LocalPlayer.Name , open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "argued_cnfgs", fileext = ".txt"}
 elseif getgenv().versionname == "Private" then
 local library = {design = getgenv().design == "kali" and "kali" or "uwuware", tabs = {}, draggable = true, flags = {}, title = "[Private Version] Field of Balls - " .. game.Players.LocalPlayer.Name , open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "argued_cnfgs", fileext = ".txt"}
+end
 getgenv().library = library
 
 --Locals
