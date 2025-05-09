@@ -1,0 +1,33 @@
+_G.on = true
+local T = (game.Players.LocalPlayer.Character.HumanoidRootPart)
+local BG = Instance.new('BodyGyro')
+local BV = Instance.new('BodyVelocity')
+    BG.P = 9e4
+    BG.Parent = T
+    BV.Parent = T
+    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    BG.cframe = T.CFrame
+    BV.velocity = Vector3.new(0, 0, 0)
+    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+while _G.on do
+for i,v in pairs(game.workspace:GetChildren()) do
+    if v.Name == "Trash Bag" or v.Name == "Red Panda" then
+        repeat
+        pcall(function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame) + Vector3.new(0, -15, 0)
+        local args = {
+	v.HumanoidRootPart.CFrame
+}
+task.wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("MonsterService"):WaitForChild("RF"):WaitForChild("RequestAttack"):InvokeServer(unpack(args))
+    end)
+until v.Humanoid.Health <= 0 or _G.on == false
+    end
+    end
+    task.wait()
+    end
+for i,v in pairs(T:GetChildren()) do
+    if v.Name == "BodyGyro" or v.Name == "BodyVelocity" then
+        v:Destroy()
+    end
+    end
